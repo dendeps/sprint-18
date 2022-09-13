@@ -1,0 +1,33 @@
+{% extends "author/base.html" %}
+
+{% block content %}
+
+<div class="my-5 align-left container">
+    <h1 class="my-3">Here you can see all information about authors:</h1>
+    <a href="{% url 'add_author' %}" class="btn btn-primary my-2">Create</a>
+
+
+    <table class="table table-striped p-3 border">
+        <thead class="fw-bold">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Author name</th>
+                <th scope="col">Author surname</th>
+                <th scope="col">Author patronymic</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for author in all_info %}
+            <tr scope="row">
+                <td> {{ author.pk }} </td>
+                <td> {{ author.name }} </td>
+                <td> {{ author.surname }}
+                <td> {{ author.patronymic }} </td>
+                <td> <a href="{% url 'author_update' author.pk %}" class="btn btn-outline-primary btn-sm">Edit</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="my-5">Input order data:</h1>
+
+    <form action="" method="post" >
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="btn btn-primary mt-2" value="Submit">
+    </form>
+
+{% endblock %}

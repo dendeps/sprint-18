@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="my-5">Create book:</h1>
+
+    <form method="post">
+        {% csrf_token %}
+    <label for="name">Title</label>
+    <input name="name" id="name">
+
+    <label for="description">Description</label>
+    <input name="description" id="description">
+
+    <label for="count">Count</label>
+    <input name="count" id="count">
+
+        <select name="author" multiple="true" size="5" class="form-select">
+        <option selected value="">create without author</option>
+        {% for a in authors %}
+        <option value="{{a.id}}">{{a.name}} {{a.surname}}</option>
+        {% endfor %}-->
+        </select>
+
+    <input type="submit" value="Create">
+  </form>
+
+{% endblock %}
+
+

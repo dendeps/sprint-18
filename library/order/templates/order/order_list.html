@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="my-5 align-left container">
+    <h1 class="my-3">Orders list:</h1>
+    <a href="{% url 'order-create' %}" class="btn btn-primary my-2">Create</a>
+
+
+    <table class="table table-striped p-3 border">
+        <thead class="fw-bold">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User</th>
+                <th scope="col">Book</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Planned end date</th>
+                <th scope="col">Ended at</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in items %}
+            <tr scope="row">
+                <td> {{forloop.counter}} </td>
+                <td> {{item.user.first_name}} {{item.user.last_name}} </td>
+                <td> {{item.book.name}}
+                     {% for a in item.authors.all %}
+                     {{a.name}} {{a.surname}} {% endfor %} </td>
+                <td> {{item.created_at}} </td>
+                <td> {{item.plated_end_at}} </td>
+                <td> {{item.end_at}} </td>
+                <td> <a href="{% url 'order-update' pk=item.id %}" class="btn btn-outline-primary btn-sm">Edit</a> </td>
+                <td> <a href="{% url 'order-delete' pk=item.id %}" class="btn btn-outline-danger btn-sm">Delete</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

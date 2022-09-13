@@ -1,0 +1,35 @@
+{% extends "book/base.html" %}
+
+{% block content %}
+
+<div class="my-5 align-left container">
+    <h1 class="my-3">Here you can see all information about books:</h1>
+    <a href="{% url 'add_book' %}" class="btn btn-primary my-2">Create</a>
+
+
+    <table class="table table-striped p-3 border">
+        <thead class="fw-bold">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Book name</th>
+                <th scope="col">Book year</th>
+                <th scope="col">Book author</th>
+                <th scope="col">Book quantity</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for book in all_info %}
+            <tr scope="row">
+                <td> {{ book.pk }} </td>
+                <td> {{ book.name }} </td>
+                <td> {{ book.year }}
+                <td> {{ book.display_author }} </td>
+                <td> {{ book.count }} </td>
+                <td> <a href="{% url 'book_update' book.pk %}" class="btn btn-outline-primary btn-sm">Edit</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

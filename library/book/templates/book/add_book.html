@@ -1,0 +1,11 @@
+{% extends "book/base.html" %}
+
+{% block content %}
+
+    <h1 class="my-3">Here you can add or edit information about books:</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Create</button>
+  </form>
+{% endblock %}

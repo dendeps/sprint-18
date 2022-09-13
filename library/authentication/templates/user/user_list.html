@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="my-5 align-left container">
+    <h1 class="my-3">Users list:</h1>
+    <a href="{% url 'user-create' %}" class="btn btn-primary my-2">Create</a>
+
+
+    <table class="table table-striped p-3 border">
+        <thead class="fw-bold">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First name</th>
+                <th scope="col">Middle name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Email</th>
+                <th scope="col">role</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% for item in items %}
+            <tr scope="row">
+                <td> {{forloop.counter}} </td>
+                <td> {{item.first_name}} </td>
+                <td> {{item.middle_name}} </td>
+                <td> {{item.last_name}} </td>
+                <td> {{item.email}} </td>
+                <td> {{item.role}} </td>
+                <td> <a href="{% url 'user-update' pk=item.id %}" class="btn btn-outline-primary btn-sm">Edit</a> </td>
+                <td> <a href="{% url 'user-delete' pk=item.id %}" class="btn btn-outline-danger btn-sm">Delete</a> </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

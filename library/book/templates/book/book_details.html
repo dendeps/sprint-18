@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1 class="my-5">Books details:</h1>
+
+   <div class="container">
+
+    <h1>Book title: {{ item.name }}</h1>
+    <h3>Book description: {{ item.description }} </h3>
+    <h3>Books available: {{ item.count }} </h3>
+    <h3>Books authors: {% for a in item.authors.all %}
+                     {{a.name}} {{a.surname}} {% endfor %}</h3>
+
+   </div>
+
+{% endblock %}
