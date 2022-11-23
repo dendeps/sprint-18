@@ -94,19 +94,11 @@ DATABASES = {
     }
 }'''
 
+DATABASE = "simpledbmamager"
 DATABASES = {
      'default': {
-         'ENGINE': 'django.db.backends.{}'.format(
-             os.getenv('DATABASE_ENGINE', 'sqlite3')
-         ),
-         'NAME': os.getenv('DATABASE_NAME', 'sprint18'),
-         'USER': os.getenv('DATABASE_USER', 'postgres'),
-         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'postgres'),
-         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
-         'PORT': os.getenv('DATABASE_PORT', 5432),
-         'OPTIONS': json.loads(
-             os.getenv('DATABASE_OPTIONS', '{}')
-         ),
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': BASE_DIR / 'db.sqlite3',
      }
  }
 

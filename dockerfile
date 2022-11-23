@@ -1,5 +1,8 @@
 FROM python:3.10-alpine3.16
+WORKDIR /app
 ADD requirements.txt /app/requirements.txt
+ADD library /app
+
 
 RUN set -ex \
     && apk add --no-cache --virtual .build-deps postgresql-dev build-base \
@@ -14,11 +17,10 @@ RUN set -ex \
     && apk add --virtual rundeps $runDeps \
     && apk del .build-deps
 
-ADD library /app
-WORKDIR /app
 
 ENV VIRTUAL_ENV /env
 ENV PATH /env/bin:$PATH
+
 
 EXPOSE 8000
 
