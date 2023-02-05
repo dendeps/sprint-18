@@ -30,16 +30,16 @@ jobs:
       #- uses: actions/checkout@v2
 
       # Setup virtual env, install dependencies
+          # cd ${{ secrets.PROJECT_PATH }}
       - name: pull teh code from Github
         run: |
-          #cd ${{ secrets.PROJECT_PATH }}
           git pull origin main
   deploy:
     runs-on: self-hosted
     needs: build
 
     steps:
-      # Kill gunicorn server, if running already
+      # run docker
       - name: Run Docker
         run: |
           make down
