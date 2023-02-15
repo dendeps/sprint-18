@@ -96,14 +96,12 @@ DATABASES = {
 
 DATABASES = {
      'default': {
-         'ENGINE': 'django.db.backends.{}'.format(
-             os.getenv('DATABASE_ENGINE', 'sqlite3')
-         ),
-         'NAME': os.getenv('DATABASE_NAME', 'sprint18'),
-         'USER': os.getenv('DATABASE_USER', 'postgres'),
-         'PASSWORD': os.getenv('DATABASE_PASSWORD', 'postgres'),
-         'HOST': os.getenv('DATABASE_HOST', '127.0.0.1'),
-         'PORT': os.getenv('DATABASE_PORT', 5432),
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': os.environ.get('POSTGRES_NAME'),
+         'USER': os.environ.get('POSTGRES_USER'),
+         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+         'HOST': 'db',
+         'PORT': 5432,
          'OPTIONS': json.loads(
              os.getenv('DATABASE_OPTIONS', '{}')
          ),
