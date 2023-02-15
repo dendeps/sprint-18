@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Clean the workspace
-            run: rm -rf $GITHUB_WORKSPACE/*
+        run: rm -rf $GITHUB_WORKSPACE/*
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # run docker
