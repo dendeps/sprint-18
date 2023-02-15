@@ -25,7 +25,9 @@ jobs:
 
     steps:
       - name: Clean the workspace
-        run: rm -rf $GITHUB_WORKSPACE/*
+        uses: docker://alpine
+        with:
+          args: /bin/sh -c "rm -rf /github/workspace/.* || rm -rf /github/workspace/*"
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       # run docker
