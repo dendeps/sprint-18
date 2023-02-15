@@ -183,7 +183,7 @@ except ImportError:
 LOGGING_CONFIG = None
 
 # Get loglevel from env
-LOGLEVEL = os.getenv('DJANGO_LOGLEVEL', 'info').upper()
+LOGLEVEL = os.getenv('DJANGO_LOGLEVEL', 'debug').upper()
 
 logging.config.dictConfig({
     'version': 1,
