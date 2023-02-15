@@ -26,5 +26,5 @@ services:
       - DJANGO_LOGLEVEL=info
       - DJANGO_SECRET_KEY=_y2b#-m(nwf8irkpgs)wpg+-e2#_7^xaevp^me4+u4ov+3fyw*
     depends_on:
-      - db
-      - condition=service_healthy
+      db:
+        condition: service_healthy
