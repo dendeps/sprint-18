@@ -9,7 +9,6 @@ services:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_HOST_AUTH_METHOD=trust
   web:
     build: .
     command: >
@@ -28,3 +27,4 @@ services:
       - DJANGO_SECRET_KEY=_y2b#-m(nwf8irkpgs)wpg+-e2#_7^xaevp^me4+u4ov+3fyw*
     depends_on:
       - db
+      - condition=service_healthy
